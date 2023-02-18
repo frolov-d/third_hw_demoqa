@@ -38,7 +38,7 @@ public class PracticeFormTest {
         $(By.cssSelector("label[for='hobbies-checkbox-2']")).click();
         $(By.cssSelector("label[for='hobbies-checkbox-3']")).click();
 
-        File fileToUpload = new File("photo_2023-02-16_19-03-31.jpg");
+        File fileToUpload = new File("src/test/resources/pictures/photo_2023-02-16_19-03-31.jpg");
         $("#uploadPicture").uploadFile(fileToUpload);
 
         $("#currentAddress").setValue("planet Earth");
