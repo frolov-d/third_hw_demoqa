@@ -45,7 +45,7 @@ public class PracticeFormTest {
 
 //        File fileToUpload = new File("src/test/resources/pictures/photo_2023-02-16_19-03-31.jp");
 //        $("#uploadPicture").uploadFile(fileToUpload);
-        $("#uploadPicture").uploadFromClasspath("photo_2023-02-16_19-03-31.jpg");
+        $("#uploadPicture").uploadFromClasspath("pictures/photo_2023-02-16_19-03-31.jpg");
 
         $("#currentAddress").setValue("planet Earth");
         $("#state").click();
@@ -66,7 +66,7 @@ public class PracticeFormTest {
         $("table tbody tr:nth-child(5) td:nth-child(2)").shouldHave(exactText("31 October,1990"));
         $("table tbody tr:nth-child(6) td:nth-child(2)").shouldHave(exactText("Maths"));
         $("table tbody tr:nth-child(7) td:nth-child(2)").shouldHave(exactText("Sports, Reading, Music"));
-        $("table tbody tr:nth-child(8) td:nth-child(2)").shouldHave(exactText("photo_2023-02-16_19-03-31.jpg"));
+        $("table tbody tr:nth-child(8) td:nth-child(2)").shouldHave(exactText("pictures/photo_2023-02-16_19-03-31.jpg"));
         $("table tbody tr:nth-child(9) td:nth-child(2)").shouldHave(exactText("planet Earth"));
         $("table tbody tr:nth-child(10) td:nth-child(2)").shouldHave(exactText("NCR Delhi"));
 
