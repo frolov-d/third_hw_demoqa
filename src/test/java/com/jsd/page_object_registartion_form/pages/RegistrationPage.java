@@ -7,7 +7,9 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
+
     CalendarComponent calendarComponent = new CalendarComponent();
+    ConfirmationPage confirmationPage = new ConfirmationPage();
 
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement lastNameInput = $("#lastName");
@@ -26,7 +28,11 @@ public class RegistrationPage {
 
 
     public RegistrationPage openPage() {
-        open("https://demoqa.com/automation-practice-form");
+        open("/automation-practice-form");
+        return this;
+    }
+
+    public RegistrationPage removeBanners() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
@@ -42,17 +48,17 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setUserEmailInput(String value) {
+    public RegistrationPage setUserEmail(String value) {
         userEmailInput.setValue(value);
         return this;
     }
 
-    public RegistrationPage setUserGenderInput(String value) {
+    public RegistrationPage setUserGender(String value) {
         userGenderInput.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage setUserNumberInput(String value) {
+    public RegistrationPage setUserMobileNumber(String value) {
         userNumberInput.setValue(value);
         return this;
     }
@@ -62,22 +68,22 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setUserSubjectsInput(String value) {
+    public RegistrationPage setUserSubjects(String value) {
         userSubjectsInput.setValue(value).pressEnter();
         return this;
     }
 
-    public RegistrationPage setUserHobbyInput(String value) {
+    public RegistrationPage setUserHobby(String value) {
         userHobbyInput.$(byText(value)).click();
         return this;
     }
 
-    public RegistrationPage setUserPictureUploadInput(String value) {
+    public RegistrationPage setUserPicture(String value) {
         userPictureUpload.uploadFromClasspath(value);
         return this;
     }
 
-    public RegistrationPage setUserCurrentAddressInput(String value) {
+    public RegistrationPage setUserCurrentAddress(String value) {
         userCurrentAddressInput.setValue(value);
         return this;
     }
@@ -92,5 +98,10 @@ public class RegistrationPage {
 
     public void submitForm() {
         submitButton.click();
+    }
+
+    public RegistrationPage verifyResult(String key, String value) {
+        confirmationPage.verifySubmissionDetails(key, value);
+        return this;
     }
 }
