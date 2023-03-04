@@ -1,0 +1,96 @@
+package com.jsd.page_object_registartion_form.pages;
+
+import com.codeborne.selenide.SelenideElement;
+import com.jsd.page_object_registartion_form.components.CalendarComponent;
+
+import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selenide.*;
+
+public class RegistrationPage {
+    CalendarComponent calendarComponent = new CalendarComponent();
+
+    private final SelenideElement firstNameInput = $("#firstName");
+    private final SelenideElement lastNameInput = $("#lastName");
+    private final SelenideElement userEmailInput = $("#userEmail");
+    private final SelenideElement userGenderInput =  $("#genterWrapper");
+    private final SelenideElement userNumberInput =  $("#userNumber");
+    private final SelenideElement userBirthDateInput =  $("#dateOfBirthInput");
+    private final SelenideElement userSubjectsInput =   $("#subjectsInput");
+    private final SelenideElement userHobbyInput = $("#hobbiesWrapper");
+    private final SelenideElement userPictureUpload = $("#uploadPicture");
+    private final SelenideElement userCurrentAddressInput = $("#currentAddress");
+    private final SelenideElement userState = $("#state");
+    private final SelenideElement userCity = $("#city");
+    private final SelenideElement stateCityWrapper = $("#stateCity-wrapper");
+    private final SelenideElement submitButton =  $("#submit");
+
+
+    public RegistrationPage openPage() {
+        open("https://demoqa.com/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return this;
+    }
+
+    public RegistrationPage setFirstName(String value) {
+        firstNameInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setLastName(String value) {
+        lastNameInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setUserEmailInput(String value) {
+        userEmailInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setUserGenderInput(String value) {
+        userGenderInput.$(byText(value)).click();
+        return this;
+    }
+
+    public RegistrationPage setUserNumberInput(String value) {
+        userNumberInput.setValue(value);
+        return this;
+    }
+    public RegistrationPage setBirthDate(String day, String month,String year) {
+        userBirthDateInput.click();
+        calendarComponent.setDate(day, month, year);
+        return this;
+    }
+
+    public RegistrationPage setUserSubjectsInput(String value) {
+        userSubjectsInput.setValue(value).pressEnter();
+        return this;
+    }
+
+    public RegistrationPage setUserHobbyInput(String value) {
+        userHobbyInput.$(byText(value)).click();
+        return this;
+    }
+
+    public RegistrationPage setUserPictureUploadInput(String value) {
+        userPictureUpload.uploadFromClasspath(value);
+        return this;
+    }
+
+    public RegistrationPage setUserCurrentAddressInput(String value) {
+        userCurrentAddressInput.setValue(value);
+        return this;
+    }
+
+    public RegistrationPage setUserStateAndCity(String state, String city) {
+        userState.click();
+        stateCityWrapper.$(byText(state)).click();
+        userCity.click();
+        stateCityWrapper.$(byText(city)).click();
+        return this;
+    }
+
+    public void submitForm() {
+        submitButton.click();
+    }
+}
