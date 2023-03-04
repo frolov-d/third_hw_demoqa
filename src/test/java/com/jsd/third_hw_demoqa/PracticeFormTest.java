@@ -3,12 +3,10 @@ package com.jsd.third_hw_demoqa;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
-
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
@@ -23,30 +21,40 @@ public class PracticeFormTest {
         open("https://demoqa.com/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-//        id = #, class = .
+
         $("#firstName").setValue("F");
         $("#lastName").setValue("D");
         $("#userEmail").setValue("test@test.com");
-        $(By.cssSelector("label[for='gender-radio-1']")).click();
+//        $(By.cssSelector("label[for='gender-radio-1']")).click();
+        $("#genterWrapper").$(byText("Male")).click();
         $("#userNumber").setValue("0123456789");
         $("#dateOfBirthInput").click();
-        $(".react-datepicker__month-select").selectOptionByValue("9");
-        $(".react-datepicker__year-select").selectOptionByValue("1990");
-        $(By.cssSelector("div.react-datepicker__day[aria-label='Choose Wednesday, October 31st, 1990']")).click();
+//        $(".react-datepicker__month-select").selectOptionByValue("9");
+        $(".react-datepicker__month-select").selectOption("October");
+//        $(".react-datepicker__year-select").selectOptionByValue("1990");
+        $(".react-datepicker__year-select").selectOption("1990");
+//        $(By.cssSelector("div.react-datepicker__day[aria-label='Choose Wednesday, October 31st, 1990']")).click();
+        $(".react-datepicker__day--031:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("M").pressEnter();
-        $(By.cssSelector("label[for='hobbies-checkbox-1']")).click();
-        $(By.cssSelector("label[for='hobbies-checkbox-2']")).click();
-        $(By.cssSelector("label[for='hobbies-checkbox-3']")).click();
+//        $(By.cssSelector("label[for='hobbies-checkbox-1']")).click();
+        $("#hobbiesWrapper").$(byText("Sports")).click();
+//        $(By.cssSelector("label[for='hobbies-checkbox-2']")).click();
+        $("#hobbiesWrapper").$(byText("Reading")).click();
+//        $(By.cssSelector("label[for='hobbies-checkbox-3']")).click();
+        $("#hobbiesWrapper").$(byText("Music")).click();
 
-        File fileToUpload = new File("photo_2023-02-16_19-03-31.jpg");
-        $("#uploadPicture").uploadFile(fileToUpload);
+//        File fileToUpload = new File("src/test/resources/pictures/photo_2023-02-16_19-03-31.jp");
+//        $("#uploadPicture").uploadFile(fileToUpload);
+        $("#uploadPicture").uploadFromClasspath("photo_2023-02-16_19-03-31.jpg");
 
         $("#currentAddress").setValue("planet Earth");
         $("#state").click();
-        $("#react-select-3-option-0").click();
+//        $("#react-select-3-option-0").click();
+        $("#stateCity-wrapper").$(byText("NCR")).click();
 
         $("#city").click();
-        $("#react-select-4-option-0").click();
+//        $("#react-select-4-option-0").click();
+        $("#stateCity-wrapper").$(byText("Delhi")).click();
 
         $("#submit").click();
 
