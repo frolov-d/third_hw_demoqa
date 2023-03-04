@@ -2,6 +2,7 @@ package com.jsd.page_object_registartion_form.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import com.jsd.page_object_registartion_form.components.CalendarComponent;
+import com.jsd.page_object_registartion_form.components.ConfirmationForm;
 
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -9,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class RegistrationPage {
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    ConfirmationPage confirmationPage = new ConfirmationPage();
+    ConfirmationForm confirmationForm = new ConfirmationForm();
 
     private final SelenideElement firstNameInput = $("#firstName");
     private final SelenideElement lastNameInput = $("#lastName");
@@ -101,7 +102,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage verifyResult(String key, String value) {
-        confirmationPage.verifySubmissionDetails(key, value);
+        confirmationForm.verifySubmissionDetails(key, value);
         return this;
     }
 }
