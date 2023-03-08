@@ -19,8 +19,6 @@ public class RandomUtils {
             case "Uttar Pradesh" -> UP_CITIES;
             default -> throw new IllegalArgumentException("Invalid state: " + state);
         };
-        Random random = new Random();
-        int index = random.nextInt(cities.length);
-        return cities[index];
+        return cities[new Random().nextInt(cities.length)];
     }
 }
