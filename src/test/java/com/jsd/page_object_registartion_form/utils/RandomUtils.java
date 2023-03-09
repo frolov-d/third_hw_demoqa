@@ -7,9 +7,13 @@ import static com.jsd.page_object_registartion_form.utils.TestData.UP_CITIES;
 
 public class RandomUtils {
 
-    public static String getRandomValue(String[] arr) {
+    public static int getRandomIndex(int length) {
         Random random = new Random();
-        int index = random.nextInt(arr.length);
+        return random.nextInt(length);
+    }
+
+    public static String getRandomValue(String[] arr) {
+        int index = getRandomIndex(arr.length);
         return arr[index];
     }
 
@@ -19,6 +23,7 @@ public class RandomUtils {
             case "Uttar Pradesh" -> UP_CITIES;
             default -> throw new IllegalArgumentException("Invalid state: " + state);
         };
-        return cities[new Random().nextInt(cities.length)];
+        int index = getRandomIndex(cities.length);
+        return cities[index];
     }
 }
