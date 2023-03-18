@@ -13,7 +13,7 @@ import static com.codeborne.selenide.CollectionCondition.sizeGreaterThanOrEqual;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
 
-public class LetterboxdParametrizedTest {
+public class LetterboxdParameterizedTest {
 
     @BeforeEach
     void setup() {
