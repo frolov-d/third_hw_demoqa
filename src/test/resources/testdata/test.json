@@ -1,0 +1,15 @@
+{
+  "name": "Dmitry",
+  "age": 32,
+  "books": {
+    "Liu Cixin": [
+      "The Dark Forest",
+      "Death's End "
+    ],
+    "Irvine Welsh": "Marabou Stork Nightmares "
+  },
+  "music": [
+    "Iron Maiden",
+    "Tool"
+  ]
+}
