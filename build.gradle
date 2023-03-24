@@ -1,10 +1,25 @@
 plugins {
 	id 'java-library'
+	id 'io.qameta.allure' version '2.11.2'
 }
 
 group = 'com.jsd'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
+
+allure {
+	report {
+		version.set("2.19.0")
+	}
+	adapter { //отвечает за появление папки build/allure-results
+		aspectjWeaver.set(true) //обработка аннотации @Step
+		frameworks {
+			junit5 {
+				adapterVersion.set("2.19.0")
+			}
+		}
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -27,7 +42,8 @@ dependencies {
 			'com.codeborne:xls-test:1.4.3',
 			'com.opencsv:opencsv:5.7.1',
 			'com.fasterxml.jackson.core:jackson-core:2.14.2',
-			'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+			'com.fasterxml.jackson.core:jackson-databind:2.14.2',
+			'io.qameta.allure:allure-selenide:2.19.0'
 	)
 }
 test {
