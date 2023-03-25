@@ -35,9 +35,9 @@ compileTestJava {
 dependencies {
 	testImplementation (
 			'com.codeborne:selenide:6.12.3',
-			"org.junit.jupiter:junit-jupiter:5.9.2",
-			"org.slf4j:slf4j-simple:2.0.6",
-			"com.github.javafaker:javafaker:1.0.2",
+			'org.junit.jupiter:junit-jupiter:5.9.2',
+			'org.slf4j:slf4j-simple:2.0.6',
+			'com.github.javafaker:javafaker:1.0.2',
 			'com.codeborne:pdf-test:1.5.0',
 			'com.codeborne:xls-test:1.4.3',
 			'com.opencsv:opencsv:5.7.1',
@@ -48,4 +48,10 @@ dependencies {
 }
 test {
 	useJUnitPlatform()
+}
+
+task remote_test(type: Test) {
+	useJUnitPlatform {
+		includeTags("Registration")
+	}
 }
