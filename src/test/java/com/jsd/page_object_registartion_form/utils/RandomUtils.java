@@ -18,11 +18,25 @@ public class RandomUtils {
     }
 
     public static String getRandomCity(String state) {
-        String[] cities = switch (state) {
+        /*String[] cities = switch (state) {
             case "NCR" -> NCR_CITIES;
             case "Uttar Pradesh" -> UP_CITIES;
             default -> throw new IllegalArgumentException("Invalid state: " + state);
         };
+        int index = getRandomIndex(cities.length);
+        return cities[index];*/
+
+        String[] cities;
+        switch (state) {
+            case "NCR":
+                cities = NCR_CITIES;
+                break;
+            case "Uttar Pradesh":
+                cities = UP_CITIES;
+                break;
+            default:
+                throw new IllegalArgumentException("Invalid state: " + state);
+        }
         int index = getRandomIndex(cities.length);
         return cities[index];
     }
