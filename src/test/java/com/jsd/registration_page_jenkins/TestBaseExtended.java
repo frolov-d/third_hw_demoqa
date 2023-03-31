@@ -24,7 +24,7 @@ public class TestBaseExtended {
         Configuration.remote = "https://user1:1234@" + System.getProperty("selenoid_url", "selenoid.autotests.cloud/wd/hub");
         Configuration.browser = System.getProperty("browser", "chrome");
         Configuration.browserVersion = System.getProperty("browser_version", "100.0");
-        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
+        Configuration.browserSize = System.getProperty("browser_size", "800x600");
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("selenoid:options", Map.<String, Object>of(
