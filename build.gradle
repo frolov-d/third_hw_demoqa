@@ -5,13 +5,13 @@ plugins {
 
 allure {
 	report {
-		version.set("2.19.0")
+		version.set('2.21.0')
 	}
 	adapter { //отвечает за появление папки build/allure-results
 		aspectjWeaver.set(true) //обработка аннотации @Step
 		frameworks {
 			junit5 {
-				adapterVersion.set("2.19.0")
+				adapterVersion.set('2.21.0')
 			}
 		}
 	}
@@ -32,17 +32,28 @@ dependencies {
 	testImplementation (
 			'com.codeborne:selenide:6.12.3',
 			'org.junit.jupiter:junit-jupiter:5.9.2',
-			'org.slf4j:slf4j-simple:2.0.6',
+			'org.slf4j:slf4j-simple:2.0.7',
 			'com.github.javafaker:javafaker:1.0.2',
 			'com.codeborne:pdf-test:1.5.0',
 			'com.codeborne:xls-test:1.4.3',
 			'com.opencsv:opencsv:5.7.1',
 			'com.fasterxml.jackson.core:jackson-core:2.14.2',
 			'com.fasterxml.jackson.core:jackson-databind:2.14.2',
-			'io.qameta.allure:allure-selenide:2.19.0'
+			'io.qameta.allure:allure-selenide:2.21.0'
 	)
 }
 
+tasks.withType(Test) {
+	useJUnitPlatform()
+	systemProperties(System.getProperties())
+
+	testLogging {
+		lifecycle {
+			events "started", "skipped", "failed", "standard_error", "standard_out"
+			exceptionFormat "short"
+		}
+	}
+}
 test {
 	useJUnitPlatform()
 }
