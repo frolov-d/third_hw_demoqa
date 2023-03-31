@@ -1,5 +1,7 @@
 package com.jsd.registration_page_jenkins;
 
+import com.github.javafaker.Faker;
+import com.jsd.page_object_registartion_form.pages.RegistrationPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -8,6 +10,8 @@ import static io.qameta.allure.Allure.step;
 
 @Tag("Registration")
 public class RegistrationWithPageObjectsTests extends TestBaseExtended {
+    RegistrationPage registrationPage = new RegistrationPage();
+    Faker faker = new Faker();
 
     @DisplayName("Registration form test with PageObject")
     @Test

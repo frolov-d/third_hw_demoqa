@@ -15,8 +15,8 @@ import java.util.Map;
 
 public class TestBaseExtended {
 
-    RegistrationPage registrationPage = new RegistrationPage();
-    Faker faker = new Faker();
+    /*RegistrationPage registrationPage = new RegistrationPage();
+    Faker faker = new Faker();*/
 
     @BeforeAll
     static void beforeAll() {
