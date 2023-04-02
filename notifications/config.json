@@ -1,0 +1,17 @@
+{
+  "base": {
+    "logo": "",
+    "project": "qa.guru hws",
+    "environment": "qa.guru",
+    "comment": "@JonSnowDies ping",
+    "reportLink": "https://jenkins.autotests.cloud",
+    "language": "ru",
+    "allureFolder": "build/reports/allure-report/allureReport/",
+    "enableChart": true
+  },
+  "telegram": {
+    "token": "1337018879:AAHtEFiixBei8ZeKVVT26noM0Rv6xleKXhU",
+    "chat": "-1001637369499",
+    "replyTo": ""
+  }
+}
