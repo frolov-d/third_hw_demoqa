@@ -1,4 +1,4 @@
-package com.jsd.third_hw_demoqa;
+package com.jsd.hw_3;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
