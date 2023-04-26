@@ -1,4 +1,4 @@
-package com.jsd.api.restapigroovy.Models;
+package com.jsd.api.restapispecsmodels.models;
 
 import lombok.Data;
 

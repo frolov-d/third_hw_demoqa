@@ -1,6 +1,6 @@
 package com.jsd.api.restapigroovy;
 
-import com.jsd.api.restapigroovy.Models.*;
+import com.jsd.api.restapigroovy.models.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
