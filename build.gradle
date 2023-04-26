@@ -1,6 +1,7 @@
 plugins {
 	id 'java-library'
 	id 'io.qameta.allure' version '2.11.2'
+	id 'io.freefair.lombok' version '6.0.0-m2'
 }
 
 allure {
@@ -40,8 +41,7 @@ dependencies {
 			'com.fasterxml.jackson.core:jackson-core:2.14.2',
 			'com.fasterxml.jackson.core:jackson-databind:2.14.2',
 			'io.qameta.allure:allure-selenide:2.21.0',
-			'io.rest-assured:rest-assured:5.3.0',
-			'org.projectlombok:lombok:1.18.26'
+			'io.rest-assured:rest-assured:5.3.0'
 	)
 }
 

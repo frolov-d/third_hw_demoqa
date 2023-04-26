@@ -6,7 +6,6 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 import static io.restassured.RestAssured.with;
-import static org.hamcrest.CoreMatchers.containsString;
 
 public class Specs {
 
@@ -16,10 +15,15 @@ public class Specs {
             .log().all()
             .contentType(ContentType.JSON);
 
-/*
     public static ResponseSpecification response = new ResponseSpecBuilder()
             .expectStatusCode(200)
-            .expectBody(containsString("success"))
             .build();
-*/
+
+    public static ResponseSpecification responseDelete = new ResponseSpecBuilder()
+            .expectStatusCode(204)
+            .build();
+
+    public static ResponseSpecification responseWrongEmail = new ResponseSpecBuilder()
+            .expectStatusCode(400)
+            .build();
 }

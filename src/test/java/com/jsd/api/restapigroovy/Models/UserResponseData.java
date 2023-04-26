@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class UserResponse {
+public class UserResponseData {
 
     private Integer page;
     @JsonProperty("per_page")
@@ -16,10 +16,5 @@ public class UserResponse {
     private Integer total;
     @JsonProperty("total_pages")
     private Integer totalPages;
-    private List<UserData> data;
-
-//    the class didn't compile for some reason without this explicit getter
-    public List<UserData> getData() {
-        return data;
-    }
+    private List<UserModel> data;
 }
