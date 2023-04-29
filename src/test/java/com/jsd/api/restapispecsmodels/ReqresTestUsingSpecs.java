@@ -95,6 +95,7 @@ public class ReqresTestUsingSpecs {
     }
 
     @Test
+    @DisplayName("Checking single last name using Groovy")
     public void checkSingleLastNameUsingGroovy() {
         step("Make request", () ->
                 given()
